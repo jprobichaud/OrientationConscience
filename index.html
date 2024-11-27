@@ -11,16 +11,16 @@
 <body>
     <div id="questionnaire-container">
         <div id="name-input-container">
-            <label for="participant-name">Your Name:</label>
+            <label for="participant-name">Entrez votre nom:</label>
             <input type="text" id="participant-name" required>
             <div class="file-input-container">
-                <label for="csv-input">Load previous answers (optional):</label>
+                <label for="csv-input">Charger des résultats précédents (optionnel):</label>
                 <input type="file" id="csv-input" accept=".csv">
             </div>
-            <button id="start-questionnaire">Start Questionnaire</button>
+            <button id="start-questionnaire">Débuter le questionnaire</button>
         </div>
         <div id="questions" style="display: none;"></div>
-        <button id="submit" style="display: none;">Submit Answers</button>
+        <button id="submit" style="display: none;">Envoyer les réponses</button>
     </div>
     <div id="results-container" style="display: none;">
         <div class="graphs-grid">
@@ -37,9 +37,9 @@
             <div id="answers-list"></div>
         </div>
         <div class="export-buttons">
-            <button id="download-csv">Download CSV</button>
-            <button id="export-pdf">Export to PDF</button>
-            <button id="send-email">Send Results</button>
+            <button id="download-csv">Exporter en CSV</button>
+            <button id="export-pdf">Exporter en PDF</button>
+            <button id="send-email">Envoyer les résultats</button>
         </div>
 
         <!-- Hidden email form -->
