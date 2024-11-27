@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script data-cfasync="false" src="form-submission-handler.js"></script>
+</head>
+<body>
+    <div id="questionnaire-container">
+        <div id="name-input-container">
+            <label for="participant-name">Your Name:</label>
+            <input type="text" id="participant-name" required>
+            <div class="file-input-container">
+                <label for="csv-input">Load previous answers (optional):</label>
+                <input type="file" id="csv-input" accept=".csv">
+            </div>
+            <button id="start-questionnaire">Start Questionnaire</button>
+        </div>
+        <div id="questions" style="display: none;"></div>
+        <button id="submit" style="display: none;">Submit Answers</button>
+    </div>
+    <div id="results-container" style="display: none;">
+        <div class="graphs-grid">
+            <div id="graph1" class="graph"></div>
+            <div id="graph2" class="graph"></div>
+            <div id="graph3" class="graph"></div>
+            <div id="graph4" class="graph"></div>
+            <div id="graph5" class="graph"></div>
+            <div id="graph6" class="graph"></div>
+            <div id="graph7" class="graph"></div>
+        </div>
+        <div class="answers-text">
+            <h3>Your Answers:</h3>
+            <div id="answers-list"></div>
+        </div>
+        <div class="export-buttons">
+            <button id="download-csv">Download CSV</button>
+            <button id="export-pdf">Export to PDF</button>
+            <button id="send-email">Send Results</button>
+        </div>
+
+        <!-- Hidden email form -->
+        <form id="email-form" class="gform pure-form pure-form-stacked" method="POST" 
+              action="https://script.google.com/macros/s/AKfycbycV3Yua9ZEpfePtDjWCwfbIlU975s909raEXkXZ7BI4krJRPCcXzqLcrKiZa55iAOLvw/exec"
+              style="display: none;">
+            <div class="form-elements">
+                <input id="email-name" name="name" type="hidden">
+                <textarea id="email-resultats" name="resultats" style="display: none;"></textarea>
+                <input id="email-date" name="date" type="hidden">
+                <input id="email-group1" name="Orientation vers le temps" type="hidden">
+                <input id="email-group2" name="Orientation vers l'événement" type="hidden">
+                <input id="email-group3" name="Pensée analytique" type="hidden">
+                <input id="email-group4" name="Pensée holistique" type="hidden">
+                <input id="email-group5" name="Orientation vers les crises" type="hidden">
+                <input id="email-group6" name="Orientation vers l'absence de crise" type="hidden">
+                <input id="email-group7" name="Orientation vers la tâche" type="hidden">
+                <input id="email-group8" name="Orientation vers la personne" type="hidden">
+                <input id="email-group9" name="Recherche de statut" type="hidden">
+                <input id="email-group10" name="Recherche de l'accomplissement" type="hidden">
+                <input id="email-group11" name="Refus de montrer sa vulnérabilité" type="hidden">
+                <input id="email-group12" name="Acceptation de montrer sa vulnérabilité" type="hidden">
+                <input id="email-group13" name="Orientation vers la culpabilité" type="hidden">
+                <input id="email-group14" name="Orientation vers la honte" type="hidden">
+                <input id="honeypot" type="text" name="honeypot" value="" style="display: none;">
+            </div>
+        </form>
+
+        <!-- Thank you message container -->
+        <div id="thank-you-message" style="display: none;">
+            <h2>Merci pour votre participation!</h2>
+            <p>Vos résultats ont été envoyés avec succès.</p>
+            <button id="restart-questionnaire" class="restart-button">Commencer un nouveau questionnaire</button>
+        </div>
+    </div>
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
