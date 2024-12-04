@@ -382,6 +382,10 @@ class Questionnaire {
     }
 
     sendResultsByEmail() {
+        // Show loading overlay
+        const loadingOverlay = document.querySelector('.loading-overlay');
+        loadingOverlay.style.display = 'flex';
+
         // Prepare the form data
         const emailForm = document.getElementById('email-form');
         
@@ -425,6 +429,9 @@ class Questionnaire {
             body: formData
         })
         .then(response => {
+            // Hide loading overlay
+            loadingOverlay.style.display = 'none';
+
             // Hide the results content
             document.querySelector('.graphs-grid').style.display = 'none';
             document.querySelector('.answers-text').style.display = 'none';
@@ -437,6 +444,9 @@ class Questionnaire {
             document.getElementById('restart-questionnaire').addEventListener('click', () => this.restartQuestionnaire());
         })
         .catch(error => {
+            // Hide loading overlay
+            loadingOverlay.style.display = 'none';
+            
             console.error('Error:', error);
             alert('Une erreur est survenue lors de l\'envoi des résultats. Veuillez réessayer.');
         });

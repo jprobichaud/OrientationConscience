@@ -32,14 +32,16 @@
             <div id="graph6" class="graph"></div>
             <div id="graph7" class="graph"></div>
         </div>
-        <div class="answers-text">
-            <h3>Your Answers:</h3>
-            <div id="answers-list"></div>
-        </div>
+        
         <div class="export-buttons">
             <button id="download-csv">Exporter en CSV</button>
             <button id="export-pdf">Exporter en PDF</button>
             <button id="send-email">Envoyer les résultats</button>
+        </div>
+
+        <div class="answers-text">
+            <h3>Your Answers:</h3>
+            <div id="answers-list"></div>
         </div>
 
         <!-- Hidden email form -->
@@ -77,5 +79,9 @@
     </div>
     <script src="questions.js"></script>
     <script src="app.js"></script>
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Envoi des résultats en cours...</div>
+    </div>
 </body>
 </html> 
