@@ -279,4 +279,18 @@
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.results-thank-you {
+    text-align: center;
+    padding: 1em;
+    margin: 1em 0;
+    background-color: #d4edda;
+    color: #155724;
+    border-radius: 4px;
+}
+
+.results-thank-you h2 {
+    margin-bottom: 0.5em;
+    color: #28a745;
 } 

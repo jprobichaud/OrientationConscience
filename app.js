@@ -251,6 +251,12 @@ class Questionnaire {
         document.getElementById('questionnaire-container').style.display = 'none';
         document.getElementById('results-container').style.display = 'block';
 
+        // Add thank you message above charts
+        const thanksDiv = document.createElement('div');
+        thanksDiv.className = 'results-thank-you';
+        thanksDiv.innerHTML = '<h2>Merci pour votre participation!</h2><p>Vos résultats ont été envoyés automatiquement.</p>';
+        document.querySelector('.graphs-grid').insertAdjacentElement('beforebegin', thanksDiv);
+
         // Create pairs of groups
         for (let i = 0; i < 7; i++) {
             const group1 = `group${i * 2 + 2}`;
@@ -270,7 +276,9 @@ class Questionnaire {
         // Add event listeners for export buttons
         document.getElementById('download-csv').addEventListener('click', () => this.downloadCSV());
         document.getElementById('export-pdf').addEventListener('click', () => this.exportToPDF());
-        document.getElementById('send-email').addEventListener('click', () => this.sendResultsByEmail());
+
+        // Automatically trigger email send
+        this.sendResultsByEmail();
     }
 
     displayAnswersList() {
@@ -431,17 +439,6 @@ class Questionnaire {
         .then(response => {
             // Hide loading overlay
             loadingOverlay.style.display = 'none';
-
-            // Hide the results content
-            document.querySelector('.graphs-grid').style.display = 'none';
-            document.querySelector('.answers-text').style.display = 'none';
-            document.querySelector('.export-buttons').style.display = 'none';
-            
-            // Show thank you message
-            document.getElementById('thank-you-message').style.display = 'block';
-
-            // Add event listener for restart button
-            document.getElementById('restart-questionnaire').addEventListener('click', () => this.restartQuestionnaire());
         })
         .catch(error => {
             // Hide loading overlay
